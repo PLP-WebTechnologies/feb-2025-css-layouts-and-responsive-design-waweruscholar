@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Responsive Layout with CSS Grid</title>
+  <style>
+    /* Reset & base styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #007acc;
+      color: white;
+      padding: 1rem;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    /* Grid Layout */
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header"
+        "main"
+        "sidebar"
+        "footer";
+      grid-gap: 1rem;
+      max-width: 1200px;
+      margin: 1rem auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      grid-area: header;
+      background: #e3e3e3;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    main {
+      grid-area: main;
+      background: white;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    aside {
+      grid-area: sidebar;
+      background: #ddd;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+
+    footer {
+      grid-area: footer;
+      background: #007acc;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Media Queries */
+
+    /* Tablet (min-width 600px) */
+    @media (min-width: 600px) {
+      .container {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+          "header header"
+          "main sidebar"
+          "footer footer";
+      }
+      nav ul {
+        justify-content: flex-start;
+        padding-left: 1rem;
+      }
+    }
+
+    /* Desktop (min-width 900px) */
+    @media (min-width: 900px) {
+      .container {
+        grid-template-columns: 3fr 1fr;
+        grid-template-areas:
+          "header header"
+          "main sidebar"
+          "footer footer";
+      }
+      nav ul {
+        justify-content: flex-start;
+        gap: 3rem;
+      }
+      main {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header>
+      Welcome to Our Responsive Site
+    </header>
+
+    <main>
+      <h2>Main Content</h2>
+      <p>
+        This is the main section where your content goes. The layout uses CSS Grid and adapts to different screen sizes using media queries.
+      </p>
+      <p>
+        Resize your browser window or view on different devices to see how the layout changes for mobile, tablet, and desktop screens.
+      </p>
+    </main>
+
+    <aside>
+      <h3>Sidebar</h3>
+      <p>Additional info, links, or ads can be placed here.</p>
+    </aside>
+
+    <footer>
+      &copy; 2025 Responsive Design Example
+    </footer>
+  </div>
+</body>
+</html>
